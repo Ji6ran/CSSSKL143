@@ -37,11 +37,9 @@ public class RecursionLab {
 		 * inside the recursiveSum() function
 		 * 
 		 */
-		//int solution = iterativeSum( 20 );
-		int solution = recursiveSum( 20 );
-		System.out.println(factorialRec(5));
-		System.out.println(exponent(5, 3));
-		System.out.println(fibonacci(4));
+		int solution = iterativeSum( 20 );
+		//int solution = recursiveSum( 20 );
+		
 		
 		//Some GUI details
 		myArea.setText(("Result is : " + solution + "\n" + myArea.getText()));
@@ -49,44 +47,12 @@ public class RecursionLab {
 		myPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		myPane.setPreferredSize(new Dimension(600,300));
 		JOptionPane.showMessageDialog( null, myPane );
-		
+		System.out.println(factorial(5));
 		//good form to include an exit call when GUIing in Java 
 		System.exit(0);
 	}
 	
-
-	public static int exponent(int b, int n) {
-		if (n == 0) {
-			return 1;
-		}
-		else {
-			return b * exponent(b, n-1);
-		}
-	}
-
-	public static double exponent2(int b, int n) {
-		if (n == 0) {
-			return 1;
-		}
-		else {
-			if (n % 2 == 0) {
-				return Math.pow(exponent2(b, n/2), 2);
-			}
-			else {
-				return b * Math.pow(exponent2(b, (n-1)/2), 2);
-			}
-		}
-	}
-
-	public static int fibonacci(int n)  {
-		if (n < 2) {
-			return n;
-		}
-		else {
-			return fibonacci(n - 1) + fibonacci(n - 2);
-		}
-	}
-
+	
 	
 	/** recursion is similar to iterative looping, but we
 	 *  use method calls to repeat computations (or decompose the problem) 
@@ -101,17 +67,14 @@ public class RecursionLab {
 	}						//for this method to terminate, we must be breaking the problem down into smaller
 							//and smaller problems, until we reach the simplest form of the problem which we know
 							//how to solve (in this case, it's the fact that sum( 1 ) == 1 )
-
-	public static int factorialRec(int n) {
-		if(n == 1) {
+	public static int factorial(int n) {
+		if (n == 1) {
 			return 1;
 		}
 		else {
-			return (n * factorialRec(n - 1));
+			return (n * factorial(n - 1));
 		}
 	}
-
-
 
 
 	//the iterative counterpart to the above recursion
